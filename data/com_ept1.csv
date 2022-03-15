@@ -1,0 +1,153 @@
+code_insee;NOM_COM;ID_EPT;NOM_EPT
+91105;Breuillet;HORS GP;Hors Grand Paris
+91198;D'Huison-Longueville;HORS GP;Hors Grand Paris
+91228;Évry-Courcouronnes;HORS GP;Hors Grand Paris
+91340;Fontaine-la-Rivière;HORS GP;Hors Grand Paris
+91363;Marcoussis;HORS GP;Hors Grand Paris
+91377;Massy;HORS GP;Hors Grand Paris
+91425;Montlhéry;HORS GP;Hors Grand Paris
+91471;Orsay;HORS GP;Hors Grand Paris
+91477;Palaiseau;HORS GP;Hors Grand Paris
+91521;Ris-Orangis;HORS GP;Hors Grand Paris
+91534;Saclay;HORS GP;Hors Grand Paris
+95183;Courdimanche;HORS GP;Hors Grand Paris
+95203;Eaubonne;HORS GP;Hors Grand Paris
+95277;Gonesse;HORS GP;Hors Grand Paris
+95280;Goussainville;HORS GP;Hors Grand Paris
+95323;Jouy-le-Moutier;HORS GP;Hors Grand Paris
+95488;Menucourt;HORS GP;Hors Grand Paris
+95563;Saint-Leu-la-Forêt;HORS GP;Hors Grand Paris
+95582;Sannois;HORS GP;Hors Grand Paris
+95680;Villiers-le-Bel;HORS GP;Hors Grand Paris
+75056;Paris;T1;Ville de Paris
+94017;Champigny-sur-Marne;T10;Paris-Est-Marne et Bois
+94018;Charenton-le-Pont;T10;Paris-Est-Marne et Bois
+94033;Fontenay-sous-Bois;T10;Paris-Est-Marne et Bois
+94042;Joinville-le-Pont;T10;Paris-Est-Marne et Bois
+94046;Maisons-Alfort;T10;Paris-Est-Marne et Bois
+94052;Nogent-sur-Marne;T10;Paris-Est-Marne et Bois
+94058;Le Perreux-sur-Marne;T10;Paris-Est-Marne et Bois
+94067;Saint-Mandé;T10;Paris-Est-Marne et Bois
+94068;Saint-Maur-des-Fossés;T10;Paris-Est-Marne et Bois
+94079;Villiers-sur-Marne;T10;Paris-Est-Marne et Bois
+94080;Vincennes;T10;Paris-Est-Marne et Bois
+94069;Saint-Maurice;T10;Paris-Est-Marne et Bois
+94015;Bry-sur-Marne;T10;Paris-Est-Marne et Bois
+94002;Alfortville;T11;Grand Paris Sud Est Avenir
+94004;Boissy-Saint-Léger;T11;Grand Paris Sud Est Avenir
+94011;Bonneuil-sur-Marne;T11;Grand Paris Sud Est Avenir
+94019;Chennevières-sur-Marne;T11;Grand Paris Sud Est Avenir
+94028;Créteil;T11;Grand Paris Sud Est Avenir
+94044;Limeil-Brévannes;T11;Grand Paris Sud Est Avenir
+94048;Marolles-en-Brie;T11;Grand Paris Sud Est Avenir
+94059;Le Plessis-Trévise;T11;Grand Paris Sud Est Avenir
+94060;La Queue-en-Brie;T11;Grand Paris Sud Est Avenir
+94070;Santeny;T11;Grand Paris Sud Est Avenir
+94071;Sucy-en-Brie;T11;Grand Paris Sud Est Avenir
+94075;Villecresnes;T11;Grand Paris Sud Est Avenir
+94055;Ormesson-sur-Marnes;T11;Grand Paris Sud Est Avenir
+94053;Noiseau;T11;Grand Paris Sud Est Avenir
+94047;Mandres-les-Roses;T11;Grand Paris Sud Est Avenir
+94056;Perigny;T11;Grand Paris Sud Est Avenir
+91027;Athis-Mons;T12;Grand-Orly Seine Bièvre
+94003;Arcueil;T12;Grand-Orly Seine Bièvre
+94016;Cachan;T12;Grand-Orly Seine Bièvre
+94021;Chevilly-Larue;T12;Grand-Orly Seine Bièvre
+94022;Choisy-le-Roi;T12;Grand-Orly Seine Bièvre
+94034;Fresnes;T12;Grand-Orly Seine Bièvre
+94037;Gentilly;T12;Grand-Orly Seine Bièvre
+94038;L'Haÿ-les-Roses;T12;Grand-Orly Seine Bièvre
+94041;Ivry-sur-Seine;T12;Grand-Orly Seine Bièvre
+94043;Le Kremlin-Bicêtre;T12;Grand-Orly Seine Bièvre
+94054;Orly;T12;Grand-Orly Seine Bièvre
+94073;Thiais;T12;Grand-Orly Seine Bièvre
+94074;Valenton;T12;Grand-Orly Seine Bièvre
+94076;Villejuif;T12;Grand-Orly Seine Bièvre
+94077;Villeneuve-le-Roi;T12;Grand-Orly Seine Bièvre
+94081;Vitry-sur-Seine;T12;Grand-Orly Seine Bièvre
+94078;Villeneuve-Saint-Georges;T12;Grand-Orly Seine Bièvre
+91479;Paray-Vieille-Poste;T12;Grand-Orly Seine Bièvre
+94065;Rungis;T12;Grand-Orly Seine Bièvre
+91432;Morangis;T12;Grand-Orly Seine Bièvre
+91589;Savigny-sur-Orge;T12;Grand-Orly Seine Bièvre
+91687;Vitry-Chatillon;T12;Grand-Orly Seine Bièvre
+91326;Juvisy-sur-Orge;T12;Grand-Orly Seine Bièvre
+94001;Ablon-sur-Seine;T12;Grand-Orly Seine Bièvre
+92002;Antony;T2;Vallée Sud Grand Paris
+92007;Bagneux;T2;Vallée Sud Grand Paris
+92014;Bourg-la-Reine;T2;Vallée Sud Grand Paris
+92019;Châtenay-Malabry;T2;Vallée Sud Grand Paris
+92020;Châtillon;T2;Vallée Sud Grand Paris
+92023;Clamart;T2;Vallée Sud Grand Paris
+92046;Malakoff;T2;Vallée Sud Grand Paris
+92049;Montrouge;T2;Vallée Sud Grand Paris
+92060;Le Plessis-Robinson;T2;Vallée Sud Grand Paris
+92071;Sceaux;T2;Vallée Sud Grand Paris
+92078;Villeneuve-la-Garenne;T5;Boucle Nord de Seine
+92032;Fontenay-aux-Roses;T2;Vallée Sud Grand Paris
+92012;Boulogne-Billancourt;T3;Grand Paris Seine Ouest
+92022;Chaville;T3;Grand Paris Seine Ouest
+92040;Issy-les-Moulineaux;T3;Grand Paris Seine Ouest
+92048;Meudon;T3;Grand Paris Seine Ouest
+92072;Sèvres;T3;Grand Paris Seine Ouest
+92075;Vanves;T3;Grand Paris Seine Ouest
+92077;Ville-d'Avray;T3;Grand Paris Seine Ouest
+92047;Marnes-la-Coquette;T3;Grand Paris Seine Ouest
+92026;Courbevoie;T4;Paris Ouest La Défense
+92033;Garches;T4;Paris Ouest La Défense
+92035;La Garenne-Colombes;T4;Paris Ouest La Défense
+92044;Levallois-Perret;T4;Paris Ouest La Défense
+92050;Nanterre;T4;Paris Ouest La Défense
+92051;Neuilly-sur-Seine;T4;Paris Ouest La Défense
+92062;Puteaux;T4;Paris Ouest La Défense
+92063;Rueil-Malmaison;T4;Paris Ouest La Défense
+92064;Saint-Cloud;T4;Paris Ouest La Défense
+92073;Suresnes;T4;Paris Ouest La Défense
+92076;Vaucresson;T4;Paris Ouest La Défense
+92004;Asnières-sur-Seine;T5;Boucle Nord de Seine
+92024;Clichy;T5;Boucle Nord de Seine
+92025;Colombes;T5;Boucle Nord de Seine
+92036;Genneviliers;T5;Boucle Nord de Seine
+95018;Argenteuil;T5;Boucle Nord de Seine
+92009;Bois Colombes;T5;Boucle Nord de Seine
+93001;Aubervilliers;T6;Plaine Commune
+93027;La Courneuve;T6;Plaine Commune
+93031;Épinay-sur-Seine;T6;Plaine Commune
+93059;Pierrefitte-sur-Seine;T6;Plaine Commune
+93066;Saint-Denis;T6;Plaine Commune
+93070;Saint-Ouen-sur-Seine;T6;Plaine Commune
+93072;Stains;T6;Plaine Commune
+93079;Villetaneuse;T6;Plaine Commune
+93039;Ile Saint Denis;T6;Plaine Commune
+93005;Aulnay-sous-Bois;T7;Paris Terres d'Envol
+93007;Le Blanc-Mesnil;T7;Paris Terres d'Envol
+93013;Le Bourget;T7;Paris Terres d'Envol
+93029;Drancy;T7;Paris Terres d'Envol
+93071;Sevran;T7;Paris Terres d'Envol
+93073;Tremblay-en-France;T7;Paris Terres d'Envol
+93078;Villepinte;T7;Paris Terres d'Envol
+93030;Dugny;T7;Paris Terres d'Envol
+93006;Bagnolet;T8;Est Ensemble
+93008;Bobigny;T8;Est Ensemble
+93010;Bondy;T8;Est Ensemble
+93045;Les Lilas;T8;Est Ensemble
+93048;Montreuil;T8;Est Ensemble
+93053;Noisy-le-Sec;T8;Est Ensemble
+93055;Pantin;T8;Est Ensemble
+93061;Le Pré-Saint-Gervais;T8;Est Ensemble
+93053;Noisy-le-Sec;T8;Est Ensemble
+93063;Romainville;T8;Est Ensemble
+93014;Clichy-sous-Bois;T9;Grand Paris - Grand Est
+93015;Coubron;T9;Grand Paris - Grand Est
+93032;Gagny;T9;Grand Paris - Grand Est
+93033;Gournay-sur-Marne;T9;Grand Paris - Grand Est
+93046;Livry-Gargan;T9;Grand Paris - Grand Est
+93047;Montfermeil;T9;Grand Paris - Grand Est
+93049;Neuilly-Plaisance;T9;Grand Paris - Grand Est
+93050;Neuilly-sur-Marne;T9;Grand Paris - Grand Est
+93051;Noisy-le-Grand;T9;Grand Paris - Grand Est
+93057;Les Pavillons-sous-Bois;T9;Grand Paris - Grand Est
+93062;Le Raincy;T9;Grand Paris - Grand Est
+93064;Rosny-sous-Bois;T9;Grand Paris - Grand Est
+93077;Villemomble;T9;Grand Paris - Grand Est
+93074;Vaujours;T9;Grand Paris - Grand Est
