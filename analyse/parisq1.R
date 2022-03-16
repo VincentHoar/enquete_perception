@@ -26,5 +26,7 @@ IPSOSPARIS = IPSOSPARIS %>%
 #Jointure des deux fichiers précédents
 mergeparisipsos = merge(IPSOSPARIS, com_ept, by = "code_insee")
 
-test = aggregate(mergeparisipsos[,10:32], by=list(mergeparisipsos$ID_EPT),mean)
+#tentative d'agréger les 23 modalités en fonction des EPT mais ce n'est pas des valeurs numériques donc je suis bloqué pour la suite et le FUN = lenght équivaut au nombre de répondants par EPT
+
+test = aggregate(mergeparisipsos[,10:32], by=list(mergeparisipsos$ID_EPT),sum)
 
