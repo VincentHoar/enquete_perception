@@ -26,6 +26,15 @@ IPSOSPARIS = IPSOSPARIS %>%
 #Jointure des deux fichiers précédents
 mergeparisipsos = merge(IPSOSPARIS, com_ept, by = "code_insee")
 
+#Méthode 1
+#Faire une matrice pour voir le nombre de total de répondants qui disent oui / non. Le faire 23 fois, mais pour comparer c'est compliqué.
+Q1B1 = table(mergeparisipsos$ID_EPT, mergeparisipsos$Q1B_1)
+Q1B1 = as.data.frame.matrix(Q1B1)
+Q1B2 = as.data.frame.matrix(Q1B2)
+
+Q1TEST = merge(Q1, Q1B2)
+
+#Méthode 2
 #tentative d'agréger les 23 modalités en fonction des EPT mais ce n'est pas des valeurs numériques donc je suis bloqué pour la suite et le FUN = lenght équivaut au nombre de répondants par EPT
 
 test = aggregate(mergeparisipsos[,10:32], by=list(mergeparisipsos$ID_EPT),sum)
