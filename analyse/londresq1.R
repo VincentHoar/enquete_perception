@@ -40,7 +40,7 @@ labsl[prem]
 
 #Création du dataframe pour réprésenter les principaux enjeux
 ld1 = as.data.frame(prem)
-ld1$id = row.names(test)
+ld1$id = row.names(ld1)
 ld1$top = labsl[prem]
 
 #Jointure avec le fond de carte
