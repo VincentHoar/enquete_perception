@@ -65,17 +65,20 @@ ept4326 <- st_transform(ept, 4326)
 leaflet() %>%
   addPolygons(data = ept4326, popup = ept4326$ID_EPT, fillColor = topo.colors(9), stroke = FALSE)
 
-pal <- colorFactor(
-  palette = 'Reds',
-  domain = ept4326$top
+paltop <- colorFactor(
+  palette = 'Set3',
+  domain = ept4326$top,
 )
+?setview
 
-leaflet() %>%
-  addPolygons(
-  data = ept4326, 
-  label = ~ID_EPT,
-  popup = "test",
-  fill = TRUE, 
-  # Application de la fonction palette
-  fillColor = ~pal(density),
-  fillOpacity = 0.8)
+
+leaflet(ept4326) %>%
+  addPolygons(opacity = 100, 
+              color = "black", 
+              weight = 0.25,
+              options = list(clickable = FALSE), 
+              fill = T, fillColor = ~paltop(ept4326$top), 
+              fillOpacity = 0.8,
+              popup = ept4326$ID_EPT)%>%
+    addLegend("bottomleft", pal = paltop, values = ept4326$top, title = "2nd most important issue",
+            )
