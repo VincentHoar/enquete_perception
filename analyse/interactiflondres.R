@@ -70,6 +70,8 @@ borough <- merge(fondlondres, rt, by.x = "BOROUGH", by.y = "id", add.x = T)
 
 #Le cout de la vie s'étend un peu partout + le "crime and policing". La city avec l'économie semble logique.
 
+library(leaflet)
+
 #Pour most important issue 
 
 londres4326 = st_transform(londres1, 4326)

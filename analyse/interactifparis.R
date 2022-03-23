@@ -62,9 +62,6 @@ ept <- merge(ept_raw, rt, by.x = "ID_EPT", by.y = "id", add.x = T)
 library(leaflet)
 ept4326 <- st_transform(ept, 4326)
 
-leaflet() %>%
-  addPolygons(data = ept4326, popup = ept4326$ID_EPT, fillColor = topo.colors(9), stroke = FALSE)
-
 paltop <- colorFactor(
   palette = 'Set3',
   domain = ept4326$top,
