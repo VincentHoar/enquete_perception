@@ -66,8 +66,6 @@ paltop <- colorFactor(
   palette = 'Set3',
   domain = ept4326$top,
 )
-?setview
-
 
 leaflet(ept4326) %>%
   addPolygons(opacity = 100, 
@@ -79,3 +77,13 @@ leaflet(ept4326) %>%
               popup = ept4326$ID_EPT)%>%
     addLegend("bottomleft", pal = paltop, values = ept4326$top, title = "2nd most important issue",
             )
+
+t = t(ept4326)
+df2 = t[-c(2,2,26,27,28),]
+pie(table(df2$`1`,))
+
+
+test = c(1,2,4,5,3)
+testlab = c("blabla", "tric", "mdr", "testa", "agag")
+pie(test, labels = testlab)
+ 
