@@ -85,9 +85,3 @@ leaflet(ept4326) %>%
     addLegend("bottomleft", pal = paltop, values = ept4326$top, title = "2nd most important issue",
             )
 #2nd most imp issue = 2e problème le plus choisi par les enquêtés (après le covid en 1er)
-
-mapview(ept4326,
-        popup = popupGraph(pie))
-
-
-addPopupGraphs(list(pie), group = ept4326, width = 300, height = 400)
