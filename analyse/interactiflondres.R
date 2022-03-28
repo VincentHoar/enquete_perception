@@ -46,9 +46,6 @@ ld1$top = labsl[prem]
 #Jointure avec le fond de carte
 londres1 = merge(fondlondres, ld1, by.x = "BOROUGH", by.y = "id", add.x = T)
 
-#Création de la carte
-mf_map(londres1, "top", "typo", pal = "Dynamic")
-mf_title("Most important issue (1st)")
 
 # deuxième réponse (sans covid, other & don't know)
 sec <- (apply(r[,-c(20, 22, 23)], 1, FUN = which.max))

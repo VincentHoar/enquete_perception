@@ -52,20 +52,27 @@ a <- matrix(c(1:nrow(r), sec), nrow = nrow(r), ncol = 2)
 rt$lab <- round(r[,-c(20, 22, 23)][a], 1)
 
 
-
 # joindre à l'objet sf
 rt$id <- row.names(rt)
 ept <- merge(ept_raw, rt, by.x = "ID_EPT", by.y = "id", add.x = T)
 
+#Graphiques
 
-
+c = c(25,25,25,25)
+pie = pie(c)
+#carte interractive
 library(leaflet)
+library(leafpop)
+library(mapview)
 ept4326 <- st_transform(ept, 4326)
 
 paltop <- colorFactor(
   palette = 'Set3',
   domain = ept4326$top,
 )
+
+opup <- paste0("<strong>EPT: </strong>", 
+                      ept4326$ID_EPT)
 
 leaflet(ept4326) %>%
   addPolygons(opacity = 100, 
@@ -74,11 +81,13 @@ leaflet(ept4326) %>%
               options = list(clickable = FALSE), 
               fill = T, fillColor = ~paltop(ept4326$top), 
               fillOpacity = 0.8,
-              popup = ept4326$ID_EPT)%>%
+              popup = popupGraph(pie, type = "svg"))%>%
     addLegend("bottomleft", pal = paltop, values = ept4326$top, title = "2nd most important issue",
             )
+#2nd most imp issue = 2e problème le plus choisi par les enquêtés (après le covid en 1er)
 
-t = t(ept4326)
-df2 = t[-c(2,2,26,27,28),]
-pie(table(df2$`1`,))
+mapview(ept4326,
+        popup = popupGraph(pie))
 
+
+addPopupGraphs(list(pie), group = ept4326, width = 300, height = 400)
