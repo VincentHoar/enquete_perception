@@ -58,7 +58,7 @@ mf_map(res_ept, "p2", type = "choro", leg_title = "Plutôt d'accord")
 mf_map(res_ept, "p3", type = "choro", leg_title = "Plutôt pas d'accord")
 mf_map(res_ept, "p4", type = "choro", leg_title = "Pas du tout d'accord")
 mf_map(res_ept, "p5", type = "choro", leg_title = "Pas assez de personnes")
-mf_map(res_ept, "p6", type = "choro", leg_title = "Ne sait pas)
+mf_map(res_ept, "p6", type = "choro", leg_title = "Ne sait pas")
 
 
 # Résumé + - 

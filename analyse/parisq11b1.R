@@ -75,7 +75,7 @@ mf_layout(
   credits = "IPSOS, Hoareau 2022",
   scale = 5, 2, 1.2
 )  
-# résumé 1 carte
+ # résumé 1 carte
 par(mfrow =c(1,1))
 mf_map(res_ept, "res", type = "choro", pal = "Geyser", breaks = "quantile", nbreak=4, leg_title = "Rapport\nd'accord / pas d'accord", leg_pos = "bottomleft2")
 mf_layout(
