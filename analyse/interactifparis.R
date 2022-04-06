@@ -55,15 +55,23 @@ rt$lab <- round(r[,-c(20, 22, 23)][a], 1)
 # joindre à l'objet sf
 rt$id <- row.names(rt)
 ept <- merge(ept_raw, rt, by.x = "ID_EPT", by.y = "id", add.x = T)
-
+?tapply
 #Graphiques
+trt = tapply(rt)
+trt = trt[-24,]
+trt = trt[-24,]
+trt = trt[-24,]
+ttrt = as.data.frame(trt)
 
+
+pie = pie(ttrt$`HORS GP`)
 c = c(25,25,25,25)
 pie = pie(c)
 #carte interractive
 library(leaflet)
 library(leafpop)
 library(mapview)
+
 ept4326 <- st_transform(ept, 4326)
 
 paltop <- colorFactor(
@@ -85,3 +93,4 @@ leaflet(ept4326) %>%
     addLegend("bottomleft", pal = paltop, values = ept4326$top, title = "2nd most important issue",
             )
 #2nd most imp issue = 2e problème le plus choisi par les enquêtés (après le covid en 1er)
+
