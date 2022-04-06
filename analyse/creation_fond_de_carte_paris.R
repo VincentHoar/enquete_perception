@@ -67,3 +67,35 @@ st_write(obj = com, dsn ="data/fondparis.gpkg", layer = "com",
          delete_layer = TRUE, quiet=TRUE)
 
 
+
+hab = st_read('data/fondparis.gpkg', layer = "dep", quiet = TRUE)
+basemap = st_read('data/fondparis.gpkg', layer = "ept_sans", quiet = TRUE)
+com = st_read('data/fondparis.gpkg', layer = "com", quiet = TRUE)
+
+hab = st_transform(hab, "EPSG:2154")
+com = st_transform(com, "EPSG:2154")
+basemap = st_transform(basemap, "EPSG:2154")
+
+dico = read.csv("data/com_ept1.csv", sep = ";")
+com
+basemap
+
+x = unique(dico[,3:4])
+basemap = merge(basemap, x, by = "ID_EPT", all.x = T)
+basemap$NOM_EPT <- c("Hors Grand Paris", "Ville de Paris", "Paris-Est-Marne et Bois", 
+                     "Grand Paris Sud Est Avenir", "Grand-Orly Seine Bièvre", "Vallée Sud Grand Paris", 
+                     "Grand Paris Seine Ouest", "Paris Ouest La Défense", "Boucle Nord de Seine", 
+                     "Plaine Commune", "Paris Terres d'Envol", "Est Ensemble", "Grand Paris - Grand Est"
+)
+
+
+basemap  = basemap[, c(1,3)]
+names(basemap)[1:2] <- c("ID_GEO", "NAME")
+
+
+st_write(obj = basemap, dsn ="data/paris.gpkg", layer = "basemap", 
+         delete_layer = TRUE, quiet = TRUE)
+st_write(obj = hab, dsn ="data/paris.gpkg", layer = "hab", 
+         delete_layer = TRUE, quiet=TRUE)
+st_write(obj = com, dsn ="data/paris.gpkg", layer = "com", 
+         delete_layer = TRUE, quiet=TRUE)
