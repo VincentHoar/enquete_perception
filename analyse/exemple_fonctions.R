@@ -68,40 +68,48 @@ mf_layout(
 )
 dev.off()
 
+
+#Pré-traitements pour résumé Paris
 res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6))
 
 var = c(res$spos, res$sneg)
 
-
+#Positif
 p <- 100* sum(res$pos) / sum(res$tot)
 
 res$indicep = res$spos / p
-bks = seq(.5, 2, .3)
 
+#Création séquence pour légende
+bks = seq(0, 2, .25)
+
+#Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
 
 res$indicen = res$sneg / n
 
 # Résumé PARIS
 mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = c("indianred4", "indianred1", "darkgoldenrod1", "cadetblue"), 
+mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(type = "choro", val = c("x 0.5", "x .75", paste0("valeur ville = ", p), "x1.75", "x 2"),pal = c("indianred4","indianred1", "darkgoldenrod1", "cadetblue") )
+mf_legend(title = "Indice en fonction de la valeur moyenne\nde l'ensemble étudié",   type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x1.75"),pal = "Blue-Red 3", pos = "bottomleft2" )
             
 mf_layout(
   title = "Leur niveau de vie va s'améliorer",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
+
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = c("sienna4","sienna1", "navajowhite1", "royalblue3"), leg_title = "En %", leg_pos = NA)
-mf_legend(type = "choro", val = c("x 0.5", "x .75", paste0("valeur ville = ", n),"x1.75", "x 2"),pal = c("sienna4","sienna1", "navajowhite1", "royalblue3") )
+mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA)
+mf_legend(title = "Indice en fonction de la valeur moyenne\nde l'ensemble étudié", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x1.75"),pal = "ArmyRose", pos = "bottom")
 
 mf_layout(
   title = "Leur niveau de vie va se détériorer",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
+
 mf_export(res, filename = paste0("fig/Paris_",question, "_oth.svg"))
 mf_map(res, "soth", type = "choro", breaks = "quantile", nbreaks = 4, pal = "YlOrBr", leg_title = "En %")
 mf_layout(
