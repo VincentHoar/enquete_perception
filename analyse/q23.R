@@ -11,7 +11,6 @@ res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
-
 res$indicep = res$spos / p
 
 #Création séquence pour légende
@@ -19,45 +18,65 @@ bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
-
 res$indicen = res$sneg / n
 
+#Autre
 o <- 100*sum(res$oth) / sum (res$tot)
-
 res$indiceo = res$soth / o
 
 # Résumé PARIS
-mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"),
+            type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                  "moyenne",
+                  "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
   title = "Pour l'introduction de péage urbain pour réduire le trafic en centre ville",
-  credits = "\nIPSOS - Hoareau, 2022",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
   title = "Contre l'introduction de péage urbain pour réduire le trafic en centre ville",
-  credits = "\nIPSOS - Hoareau, 2022",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Neutre ou NSP vis à vis du péage urbain en centre ville",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
@@ -78,35 +97,53 @@ o <- 100*sum(res$oth) / sum (res$tot)
 res$indiceo = res$soth / o
 
 # Résumé LONDRES
-mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
   title = "Pour l'introduction de péage urbain pour réduire le trafic en centre ville",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
   title = "Contre l'introduction de péage urbain pour réduire le trafic en centre ville",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
+          expandBB = c(.00,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP",
+  title = "Neutre ou NSP vis à vis du péage urbain en centre ville",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -119,7 +156,6 @@ res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
-
 res$indicep = res$spos / p
 
 #Création séquence pour légende
@@ -127,45 +163,65 @@ bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
-
 res$indicen = res$sneg / n
 
+#Autre
 o <- 100*sum(res$oth) / sum (res$tot)
-
 res$indiceo = res$soth / o
 
 # Résumé PARIS
-mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Pour encourager les gens à ne pas prendre leur voiture pour leurs trajets quotidiens",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Pour encourager à ne pas utiliser sa voiture pour aller au travail ou à l'école",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Contre encourager les gens à ne pas prendre leur voiture pour leurs trajets quotidiens",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Contre encourager à ne pas utiliser sa voiture pour aller au travail ou à l'école",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Neutre ou NSP : encourager à ne pas utiliser sa voiture pour aller au travail ou à l'école",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
@@ -186,35 +242,53 @@ o <- 100*sum(res$oth) / sum (res$tot)
 res$indiceo = res$soth / o
 
 # Résumé LONDRES
-mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Pour encourager les gens à ne pas prendre leur voiture pour leurs trajets quotidiens",
+  title = "Pour encourager à ne pas utiliser sa voiture pour aller au travail ou à l'école",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Contre encourager les gens à ne pas prendre leur voiture pour leurs trajets quotidiens",
+  title = "Contre encourager à ne pas utiliser sa voiture pour aller au travail ou à l'école",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
+          expandBB = c(.00,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP",
+  title = "Neutre ou NSP : encourager à ne pas utiliser sa voiture pour aller au travail ou à l'école",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -227,7 +301,6 @@ res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
-
 res$indicep = res$spos / p
 
 #Création séquence pour légende
@@ -235,45 +308,65 @@ bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
-
 res$indicen = res$sneg / n
 
+#Autre
 o <- 100*sum(res$oth) / sum (res$tot)
-
 res$indiceo = res$soth / o
 
 # Résumé PARIS
-mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Pour financer davantage d'infrastructures pour vélos",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Pour financer plus d'infrastructures pour vélos (routes, installations...)",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Contre financer davantage d'infrastructures pour vélos",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Contre financer plus d'infrastructures pour vélos (routes, installations...)",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Neutre ou NSP : financer des infrastructures pour vélos (routes, installations...)",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
@@ -294,35 +387,53 @@ o <- 100*sum(res$oth) / sum (res$tot)
 res$indiceo = res$soth / o
 
 # Résumé LONDRES
-mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Pour financer davantage d'infrastructures pour vélos",
+  title = "Pour financer des infrastructures pour vélos (routes, installations...)",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Contre financer davantage d'infrastructures pour vélos",
+  title = "Contre financer des infrastructures pour vélos (routes, installations...)",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
+          expandBB = c(.00,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP",
+  title = "Neutre ou NSP : financer des infrastructures pour vélos (routes, installations...)",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -335,7 +446,6 @@ res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
-
 res$indicep = res$spos / p
 
 #Création séquence pour légende
@@ -343,45 +453,65 @@ bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
-
 res$indicen = res$sneg / n
 
+#Autre
 o <- 100*sum(res$oth) / sum (res$tot)
-
 res$indiceo = res$soth / o
 
 # Résumé PARIS
-mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Pour financer davantage d'espaces piétons (trottoirs, sentiers...)",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Pour financer plus de zones piétonnes (sentiers, trottoirs...)",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Contre financer davantage d'espaces piétons (trottoirs, sentiers...)",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Contre financer plus de zones piétonnes (sentiers, trottoirs...)",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Neutre ou NSP : financer plus de zones piétonnes (sentiers, trottoirs...)",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
@@ -402,35 +532,53 @@ o <- 100*sum(res$oth) / sum (res$tot)
 res$indiceo = res$soth / o
 
 # Résumé LONDRES
-mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Pour financer davantage d'espaces piétons (trottoirs, sentiers...)",
+  title = "Pour financer plus de zones piétonnes (sentiers, trottoirs...)",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Contre financer davantage d'espaces piétons (trottoirs, sentiers...)",
+  title = "Contre financer plus de zones piétonnes (sentiers, trottoirs...)",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
+          expandBB = c(.00,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP",
+  title = "Neutre ou NSP : financer plus de zones piétonnes (sentiers, trottoirs...)",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -443,7 +591,6 @@ res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
-
 res$indicep = res$spos / p
 
 #Création séquence pour légende
@@ -451,45 +598,65 @@ bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
-
 res$indicen = res$sneg / n
 
+#Autre
 o <- 100*sum(res$oth) / sum (res$tot)
-
 res$indiceo = res$soth / o
 
 # Résumé PARIS
-mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Pour introduire plus de journées sans voitures dans Paris intra-muros",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Pour des journées sans voitures à Paris intra-muros",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Contre introduire plus de journées sans voitures dans Paris intra-muros",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Contre des journées sans voitures à Paris intra-muros",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Neutre ou NSP : des journées sans voitures à Paris intra-muros",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
@@ -510,35 +677,53 @@ o <- 100*sum(res$oth) / sum (res$tot)
 res$indiceo = res$soth / o
 
 # Résumé LONDRES
-mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Pour introduire plus de journées sans voitures à Londres",
+  title = "Pour des journées sans voitures à Londres",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Pour introduire plus de journées sans voitures à Londres",
+  title = "Contre des journées sans voitures à Londres",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
+          expandBB = c(.00,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP",
+  title = "Neutre ou NSP : des journées sans voitures à Londres",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -551,7 +736,6 @@ res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
-
 res$indicep = res$spos / p
 
 #Création séquence pour légende
@@ -559,45 +743,65 @@ bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
-
 res$indicen = res$sneg / n
 
+#Autre
 o <- 100*sum(res$oth) / sum (res$tot)
-
 res$indiceo = res$soth / o
 
 # Résumé PARIS
-mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Pour n'autoriser que les véhicules hybrides ou électriques dans Paris certains jours",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Pour n'autoriser que les véhicules 'propres' certains jours dans Paris",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Contre n'autoriser que les véhicules hybrides ou électriques dans Paris certains jours",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Contre n'autoriser que les véhicules 'propres' certains jours dans Paris",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Neutre ou NSP : n'autoriser que les véhicules 'propres' certains jours dans Paris",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
@@ -618,35 +822,53 @@ o <- 100*sum(res$oth) / sum (res$tot)
 res$indiceo = res$soth / o
 
 # Résumé LONDRES
-mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Pour n'autoriser que les véhicules hybrides ou électriques à Londres certains jours",
+  title = "Pour n'autoriser que les véhicules 'propres' certains jours dans Londres",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Contre n'autoriser que les véhicules hybrides ou électriques à Londres certains jours",
+  title = "Contre n'autoriser que les véhicules 'propres' certains jours dans Londres",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
+          expandBB = c(.00,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP",
+  title = "Neutre ou NSP : n'autoriser que les véhicules 'propres' certains jours dans Londres",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -659,7 +881,6 @@ res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
-
 res$indicep = res$spos / p
 
 #Création séquence pour légende
@@ -667,45 +888,65 @@ bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
-
 res$indicen = res$sneg / n
 
+#Autre
 o <- 100*sum(res$oth) / sum (res$tot)
-
 res$indiceo = res$soth / o
 
 # Résumé PARIS
-mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Pour transférer de l'espace pour les voitures aux piétons et cyclistes",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Pour réallouer de l'espace réservé aux véhicules aux cyclistes et piétons",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Contre transférer de l'espace pour les voitures aux piétons et cyclistes",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Contre réallouer de l'espace réservé aux véhicules aux cyclistes et piétons",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Neutre ou NSP : réallouer de l'espace réservé aux véhicules aux cyclistes et piétons",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
@@ -726,35 +967,53 @@ o <- 100*sum(res$oth) / sum (res$tot)
 res$indiceo = res$soth / o
 
 # Résumé LONDRES
-mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Pour transférer de l'espace pour les voitures aux piétons et cyclistes",
+  title = "Pour réallouer de l'espace réservé aux véhicules aux cyclistes et piétons",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Contre transférer de l'espace pour les voitures aux piétons et cyclistes",
+  title = "Contre réallouer de l'espace réservé aux véhicules aux cyclistes et piétons",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
+          expandBB = c(.00,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP",
+  title = "Neutre ou NSP : réallouer de l'espace réservé aux véhicules aux cyclistes et piétons",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -767,7 +1026,6 @@ res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
-
 res$indicep = res$spos / p
 
 #Création séquence pour légende
@@ -775,45 +1033,65 @@ bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
-
 res$indicen = res$sneg / n
 
+#Autre
 o <- 100*sum(res$oth) / sum (res$tot)
-
 res$indiceo = res$soth / o
 
 # Résumé PARIS
-mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Pour réduire la vitesse de circulation dans les zones denses",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Pour réduire la vitesse limite dans les zones denses",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Contre réduire la vitesse de circulation dans les zones denses",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Contre réduire la vitesse limite dans les zones denses",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
-mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
+          expandBB = c(0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP",
-  credits = "\nIPSOS - Hoareau, 2022",
+  title = "Neutre ou NSP : réduire la vitesse limite dans les zones denses",
+  credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
+mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
@@ -834,35 +1112,53 @@ o <- 100*sum(res$oth) / sum (res$tot)
 res$indiceo = res$soth / o
 
 # Résumé LONDRES
-mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Blue-Red 3", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Pour réduire la vitesse de circulation dans les zones denses",
+  title = "Pour réduire la vitesse limite dans les zones denses",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
+          expandBB = c(.0,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "ArmyRose", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Contre réduire la vitesse de circulation dans les zones denses",
+  title = "Contre réduire la vitesse limite dans les zones denses",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
-       leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
-
+mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
+          expandBB = c(.00,0,0,0))
+mf_map(res, "indicep", type = "choro", breaks = bks, 
+       leg_val_rnd = 2,  pal = "Earth", 
+       leg_title = "En %", leg_pos = NA, add = TRUE)
+mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
+          type = "choro", 
+          val = c( "0", "x 0.5", "x 0.75",
+                   "moyenne",
+                   "x 1.25", "x 1.5", "> x 2")
+          ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP",
+  title = "Neutre ou NSP : réduire la vitesse limite dans les zones denses",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
