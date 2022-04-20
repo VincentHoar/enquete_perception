@@ -15,7 +15,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
@@ -30,7 +30,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "Minimum 2x supérieur"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "Les prix de l'immobilier sont abordables pour les gens comme moi",
@@ -41,7 +41,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "Minimum 2x supérieur"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "Les prix de l'immobilier ne sont pas abordables pour les gens comme moi",
@@ -52,7 +52,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
 mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x1.75"),pal = "Earth", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "Minimum 2x supérieur"),pal = "Earth", pos = "bottomleft2")
 
 mf_layout(
   title = "Neutre ou NSP",
@@ -68,7 +68,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
@@ -82,7 +82,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "Minimum 2x supérieur"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "Les prix de l'immobilier sont abordables pour les gens comme moi",
@@ -93,7 +93,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "Minimum 2x supérieur"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "Les prix de l'immobilier ne sont pas abordables pour les gens comme moi",
@@ -104,7 +104,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
 mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Earth", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "Minimum 2x supérieur"),pal = "Earth", pos = "bottomleft2")
 
 mf_layout(
   title = "Neutre ou NSP",
@@ -125,7 +125,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
@@ -140,7 +140,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "Trop cher pour eux d'accéder à la propriété",
@@ -151,7 +151,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "Pas trop cher pour eux d'accéder à la propriété",
@@ -178,7 +178,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
@@ -192,7 +192,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "Trop cher pour eux d'accéder à la propriété",
@@ -203,7 +203,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "Pas trop cher pour eux d'accéder à la propriété",
@@ -214,7 +214,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
 mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Earth", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
 
 mf_layout(
   title = "Neutre ou NSP",

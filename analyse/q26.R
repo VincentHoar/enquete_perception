@@ -15,7 +15,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
@@ -68,8 +68,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
-
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
 res$indicen = res$sneg / n
@@ -80,9 +79,9 @@ res$indiceo = res$soth / o
 
 # Résumé LONDRES
 mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
-mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
+mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", ">2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "L'immigration venant d'hors du Royaume-Uni a un impact positif",
@@ -91,9 +90,9 @@ mf_layout(
 dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
-mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
+mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", ">2"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "L'immigration venant d'hors du Royaume-Uni a un impact négatif",
@@ -102,7 +101,7 @@ mf_layout(
 dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
-mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
+mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
 mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Earth", pos = "bottomleft2")
 
@@ -125,7 +124,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
@@ -178,7 +177,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
@@ -235,7 +234,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
@@ -288,7 +287,7 @@ p <- 100* sum(res$pos) / sum(res$tot)
 res$indicep = res$spos / p
 
 #Création séquence pour légende
-bks = seq(0, 2, .25)
+bks = (c(0, .5, .75, 1, 1.25, 1.5, 10))
 
 #Négatif
 n <- 100*sum(res$neg) / sum (res$tot)
