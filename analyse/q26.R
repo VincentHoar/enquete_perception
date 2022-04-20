@@ -30,7 +30,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "L'immigration venant d'hors de France a un impact positif",
@@ -41,7 +41,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "L'immigration venant d'hors de France a un impact négatif",
@@ -52,7 +52,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
 mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x1.75"),pal = "Earth", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
 
 mf_layout(
   title = "Neutre ou NSP",
@@ -81,7 +81,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks2, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", ">2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "L'immigration venant d'hors du Royaume-Uni a un impact positif",
@@ -92,7 +92,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", ">2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "L'immigration venant d'hors du Royaume-Uni a un impact négatif",
@@ -103,7 +103,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
 mf_map(res, "indiceo", type = "choro", breaks = bks2, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Earth", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
 
 mf_layout(
   title = "Neutre ou NSP",
@@ -139,7 +139,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "L'immigration venant d'autres régions de France a un impact positif",
@@ -150,7 +150,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "L'immigration venant d'autres régions de France a un impact négatif",
@@ -161,7 +161,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
 mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x1.75"),pal = "Earth", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
 
 mf_layout(
   title = "Neutre ou NSP",
@@ -191,7 +191,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "L'immigration venant du Royaume-Uni a un impact positif",
@@ -249,7 +249,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Paris_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "Il faut plus d'immigration qu'actuellement",
@@ -260,7 +260,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "Il ne faut pas plus d'immigration qu'actuellement",
@@ -271,7 +271,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"))
 mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x1.75"),pal = "Earth", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0.25", "x 0.5", "x .75", paste0("x1 = ", o), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
 
 mf_layout(
   title = "Neutre ou NSP",
@@ -301,7 +301,7 @@ res$indiceo = res$soth / o
 mf_export(res, filename = paste0("fig/Londres_", question, "_pos.svg"))
 mf_map(res, "indicep", type = "choro", breaks = bks, leg_val_rnd = 2,  pal = "Blue-Red 3", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Blue-Red 3", pos = "bottomleft2" )
+mf_legend(title = "Indice en fonction de\nla valeur moyenne",   type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Blue-Red 3", pos = "bottomleft2" )
 
 mf_layout(
   title = "Il faut plus d'immigration qu'actuellement",
@@ -312,7 +312,7 @@ dev.off()
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"))
 mf_map(res, "indicen", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "ArmyRose", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "ArmyRose", pos = "bottomleft2")
 
 mf_layout(
   title = "Il ne faut pas plus d'immigration qu'actuellement",
@@ -323,11 +323,10 @@ dev.off()
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"))
 mf_map(res, "indiceo", type = "choro", breaks = bks, leg_val_rnd = 0, , pal = "Earth", 
        leg_title = "En %", leg_pos = NA)
-mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x2"),pal = "Earth", pos = "bottomleft2")
+mf_legend(title = "Indice en fonction de\nla valeur moyenne", type = "choro", val = c("x.0", "x 0.5", "x .75", paste0("x1 = ", p), "x1.25", "x1.5", "x >2"),pal = "Earth", pos = "bottomleft2")
 
 mf_layout(
   title = "Neutre ou NSP",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
-
