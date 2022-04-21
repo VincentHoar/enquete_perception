@@ -45,7 +45,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -63,7 +63,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -116,7 +116,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -133,7 +133,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
@@ -190,7 +190,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -208,7 +208,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -261,7 +261,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -278,7 +278,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
@@ -335,7 +335,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -353,7 +353,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -406,7 +406,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -423,7 +423,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
@@ -480,7 +480,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -498,7 +498,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -551,7 +551,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -568,7 +568,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
@@ -625,7 +625,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -643,7 +643,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -696,7 +696,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -713,7 +713,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
@@ -770,7 +770,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -788,7 +788,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -841,7 +841,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -858,7 +858,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
@@ -915,7 +915,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -933,7 +933,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -986,7 +986,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -1003,7 +1003,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
@@ -1060,7 +1060,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -1078,7 +1078,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -1131,7 +1131,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -1148,7 +1148,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
