@@ -37,7 +37,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Se loger dans ma commune est abordable pour les gens comme moi",
+  title = "Important que les habitants de ma commune ait accès à tout en 15-20min",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -45,7 +45,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_neg.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"),
@@ -55,7 +55,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Se loger dans ma commune n'est pas abordable pour les gens comme moi",
+  title = "Pas mportant que les habitants de ma commune ait accès à tout en 15-20min",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -63,7 +63,7 @@ dev.off()
 
 mf_export(res, filename = paste0("fig/Paris_", question, "_oth.svg"), 
           expandBB = c(0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"),
@@ -73,14 +73,14 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP : se loger dans ma commune est abordable pour les gens comme moi",
+  title = "NSP¨: Importance de l'hyper proximité",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
 dev.off()
 
 #Pré-traitements pour résumé Londres
-res = geoagg(x, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6))
+res = geoagg(x, question, mod_pos = c(1, 2), mod_neg = c(3, 4), mod_oth = c(5))
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
@@ -109,14 +109,14 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Se loger dans ma commune est abordable pour les gens comme moi",
+  title = "Important que les habitants de ma commune ait accès à tout en 15-20min",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_neg.svg"), 
           expandBB = c(.0,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indicen", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "ArmyRose", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
@@ -126,14 +126,14 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Se loger dans ma commune n'est pas abordable pour les gens comme moi",
+  title = "Pas important que les habitants de ma commune ait accès à tout en 15-20min",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
 mf_export(res, filename = paste0("fig/Londres_", question, "_oth.svg"), 
           expandBB = c(.00,0,0,0))
-mf_map(res, "indicep", type = "choro", breaks = bks, 
+mf_map(res, "indiceo", type = "choro", breaks = bks, 
        leg_val_rnd = 2,  pal = "Earth", 
        leg_title = "En %", leg_pos = NA, add = TRUE)
 mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
@@ -143,7 +143,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP : se loger dans ma commune est abordable pour les gens comme moi",
+  title = "NSP : importance de l'hyper proximité",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()

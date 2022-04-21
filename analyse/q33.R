@@ -3,11 +3,11 @@ source("gen_satisfy.R")
 x = prep("London")
 y = prep("Paris")
 
-#Q11B2. Thinking now about living in Paris/votre commune, to what extent do you agree or disagree with the following statements? - Housing in Paris/Ma commune is affordable for people like me
-question = "GRID_Q11B_2"
+#Q33_1. How safe do you feel walking alone in your local area… - ...during the day time?
+question = "GRID_Q33_1"
 
 #Pré-traitements pour résumé Paris
-res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6))
+res = geoagg(y, question, mod_pos = c(1,2), mod_neg = c(3,4), mod_oth = c(5,6,7))
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
@@ -37,7 +37,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Se loger dans ma commune est abordable pour les gens comme moi",
+  title = "Se sentir en sécurité la journée dans son quartier",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -55,7 +55,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Se loger dans ma commune n'est pas abordable pour les gens comme moi",
+  title = "Ne pas se sentir en sécurité la journée dans son quartier",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -73,7 +73,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP : se loger dans ma commune est abordable pour les gens comme moi",
+  title = "Autre",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -109,7 +109,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Se loger dans ma commune est abordable pour les gens comme moi",
+  title = "Se sentir en sécurité la journée dans son quartier",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -126,7 +126,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Se loger dans ma commune n'est pas abordable pour les gens comme moi",
+  title = "Ne pas se sentir en sécurité la journée dans son quartier",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -143,17 +143,16 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP : se loger dans ma commune est abordable pour les gens comme moi",
+  title = "Autre",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
 
-
-#Q11B3. Thinking now about living in Paris/votre commune, to what extent do you agree or disagree with the following statements? - It is too expensive for me to buy a property in Paris/Ma commune
-question = "GRID_Q11B_3"
+#Q33_2. How safe do you feel walking alone in your local area… - ...after dark?
+question = "GRID_Q33_2"
 
 #Pré-traitements pour résumé Paris
-res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(4, 5), mod_oth = c(3, 6))
+res = geoagg(y, question, mod_pos = c(1,2), mod_neg = c(3,4), mod_oth = c(5,6,7))
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
@@ -183,7 +182,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "L'accès à la propriété est trop cher pour les gens comme moi",
+  title = "Se sentir en sécurité la nuit dans son quartier",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -201,7 +200,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "L'accès à la propriété n'est pas trop cher pour les gens comme moi",
+  title = "Ne pas se sentir en sécurité la nuit dans son quartier",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -219,7 +218,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "Neutre ou NSP : l'accès à la propriété est trop cher pour les gens comme moi",
+  title = "Autre",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -255,7 +254,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "L'accès à la propriété est trop cher pour les gens comme moi",
+  title = "Se sentir en sécurité la nuit dans son quartier",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -272,7 +271,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "L'accès à la propriété n'est pas trop cher pour les gens comme moi",
+  title = "Ne pas se sentir en sécurité la nuit dans son quartier",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -289,7 +288,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "Neutre ou NSP : l'accès à la propriété est trop cher pour les gens comme moi",
+  title = "Autre",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
