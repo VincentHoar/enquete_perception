@@ -55,7 +55,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Pas mportant que les habitants de ma commune ait accès à tout en 15-20min",
+  title = "Pas important que les habitants de ma commune ait accès à tout en 15-20min",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")

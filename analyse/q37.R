@@ -874,8 +874,8 @@ mf_layout(
 )
 dev.off()
 
-#Q37_6. Thinking about Paris/Paris et sa région in the next few years after the coronavirus pandemic, do you think each of the following will get better, get worse, or stay the same? - Public services (schools, hospitals, etc)
-question = "GRID_Q37_NEW_6"
+#Q37_7. Thinking about Paris/Paris et sa région in the next few years after the coronavirus pandemic, do you think each of the following will get better, get worse, or stay the same? - Public services (schools, hospitals, etc)
+question = "GRID_Q37_NEW_7"
 
 #Pré-traitements pour résumé Paris
 res = geoagg(y, question, mod_pos = c(1), mod_neg = c(2), mod_oth = c(3))
