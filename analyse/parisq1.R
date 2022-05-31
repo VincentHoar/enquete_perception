@@ -63,7 +63,9 @@ ept <- merge(ept_raw, rt, by.x = "ID_EPT", by.y = "id", add.x = T)
 
 
 # carto
-mf_map(ept, "top", "typo", pal  ='Dynamic')
+mf_export(expandBB = c(.45,0,0,0),ept, filename = "paris_issue2.svg")
+mf_map(ept, "top", "typo", pal  ='Dynamic',)
 mf_title("Most important issue (2nd)")
 mf_label(ept, "lab")
+dev.off()
 
