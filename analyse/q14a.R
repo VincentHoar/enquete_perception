@@ -3,11 +3,11 @@ source("gen_satisfy.R")
 x = prep("London")
 y = prep("Paris")
 
-#Q14A. How likely, if at all, is it that you will move out of Paris/votre commune in the next five years?
-question = "Q14A"
+#QD12. Which of these best describes your current working arrangements?
+question = "QD12"
 
 #Pré-traitements pour résumé Paris
-res = geoagg(y, question, mod_pos = c(1, 2, 3), mod_neg = c(4, 5, 6), mod_oth = c(7))
+res = geoagg(y, question, mod_pos = c(1, 2), mod_neg = c(3), mod_oth = c(4,5))
 
 #Positif
 p <- 100* sum(res$pos) / sum(res$tot)
@@ -37,7 +37,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(p, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Blue-Red 3", pos = "topleft" )
 mf_layout(
-  title = "Veulent quitter leur commune (sont certains ou presque)",
+  title = "Peut télétravailler (toujours ou quelques fois)",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -55,7 +55,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(n, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "topleft" )
 mf_layout(
-  title = "Ne veulent pas quitter leur commune (sont certains ou presque)",
+  title = "Ne peut pas télétravailler",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -73,7 +73,7 @@ mf_legend(title = paste0("Ecart à la valeur", "\n","moyenne (",round(o, 0),"%)"
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Earth", pos = "topleft" )
 mf_layout(
-  title = "NSP¨: veulent quitter leur commune",
+  title = "Autre (ne travaille pas ou en congé)",
   credits = "IPSOS - Hoareau, 2022", arrow = FALSE
 )
 mf_arrow("topright")
@@ -109,7 +109,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(p, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Blue-Red 3", pos = "bottomleft1" )
 mf_layout(
-  title = "Veulent quitter Londres (sont certains ou presque)",
+  title = "Peut télétravailler (toujours ou quelques fois)",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -126,7 +126,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(n, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "ArmyRose", pos = "bottomleft1" )
 mf_layout(
-  title = "Ne veulent pas quitter Londres (sont certains ou presque)",
+  title = "Ne peut pas télétravailler",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
@@ -143,7 +143,7 @@ mf_legend(title = paste0("Ecart à la", "\n","moyenne (",round(o, 0),"%)"),
                    "x 1.25", "x 1.5", "> x 2")
           ,pal = "Earth", pos = "bottomleft1" )
 mf_layout(
-  title = "NSP : veulent quitter Londres",
+  title = "Autre (ne travaille pas ou en congé)",
   credits = "\nIPSOS - Hoareau, 2022",
 )
 dev.off()
