@@ -1,1 +1,0 @@
-#Q10. Would you say that compared with other parts of France, Paris/votre commune gets pretty much its fair share of public spending, more than its fair share, or less than its fair share of central government spending?
